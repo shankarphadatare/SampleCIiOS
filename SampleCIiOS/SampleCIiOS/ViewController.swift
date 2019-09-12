@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     }
 
     
-    func printLogs() ->  {
+    func printLogs() {
         print("prints logs when get called")
     }
 
