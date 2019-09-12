@@ -1,7 +1,7 @@
 // This Jenkinsfile is used to build, test, and generate code coverage for an iOS project
 // If you want to use this Jenkinsfile with your own project you'll need to make some changes:
 // 1. Change the following variables to match your project
-def xcodeproj = 'SampleCIiOS.xcodeproj' // Path to the xcodeproj
+def xcodeproj = 'SampleCIiOS/SampleCIiOS.xcodeproj' // Path to the xcodeproj
 def xcarchive_name = "SampleCIiOS.xcarchive" // Name of the archive to build
 def build_scheme = 'SampleCIiOS' // Scheme to build the app
 def test_scheme = 'SampleCIiOS' // Scheme to build tests
@@ -19,7 +19,8 @@ node {
                 // Set up a development team and code signing to archive an ipa
                 //sh "xcrun xcodebuild -scheme '${build_scheme}' -destination 'name=iPhone 7' clean build | tee build/xcodebuild.log | xcpretty"
         
-                sh "xcodebuild -scheme '${build_scheme}' build"
+                //sh "xcodebuild -scheme '${build_scheme}' build"
+                sh "xcodebuild -scheme '${build_scheme}' -project '${xcodeproj}' build"
 
                 // Uncomment this when building a project with code signing set up
                 /*sh "xcrun xcodebuild -scheme '${build_scheme}' archive -archivePath 'build/${xcarchive_name}' | tee build/xcodebuild.log | xcpretty"
