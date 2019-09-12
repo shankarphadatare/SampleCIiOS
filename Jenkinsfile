@@ -20,7 +20,7 @@ node {
                 //sh "xcrun xcodebuild -scheme '${build_scheme}' -destination 'name=iPhone 7' clean build | tee build/xcodebuild.log | xcpretty"
         
                 //sh "xcodebuild -scheme '${build_scheme}' build"
-                sh "xcodebuild -scheme '${build_scheme}' -project '${xcodeproj}' build"
+                sh "xcodebuild -scheme '${build_scheme}' -project '${xcodeproj}' -destination 'name=iPhone 7' build"
 
                 // Uncomment this when building a project with code signing set up
                 /*sh "xcrun xcodebuild -scheme '${build_scheme}' archive -archivePath 'build/${xcarchive_name}' | tee build/xcodebuild.log | xcpretty"
