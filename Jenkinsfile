@@ -14,8 +14,7 @@ def slackChannel = '#general'
 node {
     stage('Build') {
             echo 'Hi, this is shankar'
-        wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
-                // Just build for the example project
+         // Just build for the example project
                 // We can't archive because there's no code signing set up
                 // Set up a development team and code signing to archive an ipa
                 sh "xcrun xcodebuild -scheme '${build_scheme}' -destination 'name=iPhone 7' clean build | tee build/xcodebuild.log | xcpretty"
@@ -27,6 +26,6 @@ node {
                     sh "zip -qr 'Jenkins-iOS-Example-${env.BUILD_NUMBER}.zip' '${xcarchive_name}'"
                     sh "mv 'Jenkins iOS Example.ipa' 'Jenkins iOS Example-${branchNameForURL}.ipa'"
                 }*/
-            }
+        
         }
 }
