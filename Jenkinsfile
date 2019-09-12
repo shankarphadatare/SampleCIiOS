@@ -19,7 +19,7 @@ node {
                 // Set up a development team and code signing to archive an ipa
                 //sh "xcrun xcodebuild -scheme '${build_scheme}' -destination 'name=iPhone 7' clean build | tee build/xcodebuild.log | xcpretty"
         
-                sh "xcodebuild -scheme '${build_scheme}' -destination 'name=iPhone 7' clean build"
+                sh "xcrun xcodebuild -scheme '${build_scheme}' build"
 
                 // Uncomment this when building a project with code signing set up
                 /*sh "xcrun xcodebuild -scheme '${build_scheme}' archive -archivePath 'build/${xcarchive_name}' | tee build/xcodebuild.log | xcpretty"
